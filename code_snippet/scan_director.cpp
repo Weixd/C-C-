@@ -33,4 +33,5 @@ int scan_dir(char *dir, int depth)
 
 	chdir("..");// go to parent director
 	closedir(child_dp);// close the stream of child director.
+	return 0;
 }
