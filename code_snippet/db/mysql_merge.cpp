@@ -5,7 +5,7 @@
 
 #define _HOST_ "127.0.0.1"  //主机
 #define _USER_ "root"    //数据库用户，不是操作用户
-#define _PASSWD_ "em-data-9527"   //数据库root用户的密码
+#define _PASSWD_ "password"   //数据库root用户的密码
 #define _DB_NAME_ "scott" //数据库名称
 
 int mysql_connect(MYSQL *);
