@@ -2,10 +2,10 @@
 
 for line in `cat ~/0204_pass.txt`
 do
-    cp "/home/public/0204_chongqing/2018-07-10/"${line:38} $HOME/pass0204
+    cp "~/source/path/"${line:38} $HOME/pass
 done
 
 for line in `cat ~/0204_not_pass.txt`
 do
-    cp "/home/public/0204_chongqing/2018-07-10/"${line:38} $HOME/notpass0204
+    cp "~/source/path/"${line:38} $HOME/notpass
 done
