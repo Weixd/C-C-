@@ -1,3 +1,0 @@
-#### my planning for work
-***
-
