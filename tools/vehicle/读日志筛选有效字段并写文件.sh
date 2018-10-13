@@ -1,4 +1,5 @@
 #!/bin/bash
+#读取日志文件并筛选时间信息并重定向到新文件
 # needs input 1> log path 
 
 model_name="./result/huochexiang_model.txt"

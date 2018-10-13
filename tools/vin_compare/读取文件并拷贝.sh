@@ -1,4 +1,5 @@
 #!/bin/bash
+#读取文件并拷贝
 
 for line in `cat ~/0204_pass.txt`
 do

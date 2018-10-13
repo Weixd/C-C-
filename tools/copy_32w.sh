@@ -1,4 +1,5 @@
 #!/bin/bash
+#320000数据复制
 
 count=0
 for file in `ls ~/source_image`

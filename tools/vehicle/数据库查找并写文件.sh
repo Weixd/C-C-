@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # author:   xeast
 # date:     20180716
-# function: get vehicel check mysql database type 0204 image pass and not pass.
+# function: 获取车捡MySQL数据库0204照片类型通过和不通过结果，并写入文件.
 # # # # # # ## # # # # # ## #  ## # # ## # ## # # ## # # # ## # # # # ##  ### # # ## # ## # # ## # ## #  ## # #   ## # # ##
 
 #!/bin/bash

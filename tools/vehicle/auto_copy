@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while read line
+do
+    echo "File:$line"
+    scp "public@192.168.204.61:${line}" ./0348_error
+done < file_list
+

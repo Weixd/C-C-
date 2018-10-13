@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # author:   xeast
 # date:     20180712
-# function: get vehicel check mysql database which type image's passing rate
+# function: 获取车捡数据库的每一种照片通过率并写入文件
 # # # # # # ## # # # # # ## #  ## # # ## # ## # # ## # # # ## # # # # ##  ### # # ## # ## # # ## # ## #  ## # #   ## # # ##
 
 #!/bin/bash

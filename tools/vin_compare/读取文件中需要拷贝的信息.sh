@@ -5,7 +5,7 @@ for line in `cat ~/result机器识别结果/npass_nori通过且篡改机器结�
 do
     result=""
     if [ "$count" -eq "1" ]
-    then
+    then #跳过第一行非数据
         echo $count
         let count++
         continue

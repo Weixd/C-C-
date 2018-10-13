@@ -1,4 +1,5 @@
 #!/bin/bash
+#还可以用pidof命令查看，启动的程序会有pid，否则没有
 
 while true
 do

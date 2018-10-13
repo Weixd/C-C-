@@ -1,4 +1,5 @@
 #!/bin/bash
+#启动主机smb共享需要的设置
 
 echo "ubuntu" | chmod 664 ~/image/*
 
