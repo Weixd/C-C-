@@ -1,0 +1,14 @@
+#### 先安装fcitx-libs-qt fcitx-libs-qt5
+sudo apt-get install fcitx-libs-qt fcitx-libs-qt5
+
+
+#### 拷贝libfcitxplatforminputcontextplugin.so到Qt目录
+
+#### 解决QtCreator本身的编辑器不能输入中文
+将libfcitxplatforminputcontextplugin.so拷贝到[Qt安装目录]/Tools/QtCreator/lib/Qt/plugins/platforminputcontexts或者
+[Qt安装目录]/Tools/QtCreator/bin/plugins/platforminputcontexts
+不同的版本，插件路径略有不同，但一定是在[Qt安装目录]/Tools/QtCreator/中。
+
+
+#### 解决Qt开发的软件界面不能输入中文
+cp /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin.so ~/Qt5.8.0/5.8/gcc_64/plugins/platforminputcontexts
