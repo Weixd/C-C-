@@ -4,6 +4,8 @@
 #include <map>
 #include <string>
 
+// cmarkup查找xml子选项时需要先 FindElem() 后才能 IntoElem()
+// 否则会找不到
 typedef std::map<std::string, std::string> ccmap;
 
 // 写函数
