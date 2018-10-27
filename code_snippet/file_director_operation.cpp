@@ -1,3 +1,55 @@
+//  获取当前路径
+#include <string>
+
+std::string func_get_current_folder(void)
+{
+#ifdef __linux
+    char path[1024]={0};
+    int cnt = readlink("/proc/self/exe", path, 1024);
+    if(cnt < 0 || cnt >= 1024)
+        return "";
+    for(int i = cnt; i >= 0; --i)
+    {
+        if(path[i]=='/')
+        {
+            path[i + 1]='\0';
+            break;
+        }
+    }
+    return path;
+#else
+    CHAR path[MAX_PATH];
+    ::GetModuleFileNameA(NULL, path, MAX_PATH);
+    int cnt = strlen(path);
+    for (int i = cnt; i >= 0; --i)
+    {
+        if (path[i] == '\\')
+        {
+            path[i + 1] = '\0';
+            break;
+        }
+    }
+    return path;
+#endif
+}
+
+
+// 路径存在判断
+bool func_path_exist(std::string path)
+{
+#ifdef __linux
+    struct stat buf;
+    if(-1 == stat(path.c_str(),&buf))
+        return false;
+    return true;
+#else
+    return ::PathFileExistsA(path.c_str())==TRUE;
+#endif
+}
+
+
+
+// 目录遍历（递归）
 enum {
 	OPEN_SECCEED = 0;
 	OPEN_FAILED;

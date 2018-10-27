@@ -1,3 +1,70 @@
+// 可变参数
+#include <stdio.h>
+#include <stdarg.h>
+
+void print(int n,...)
+{
+	va_list parglist;   //定义不定参数列表ap
+	va_start(parglist, n);  //得到第一个可变参数地址
+	int i;
+	for(i=0; i<n; i++)
+		printf("%d ",va_arg(parglist,int)); //每次取一个整型
+	va_end(parglist);
+}
+
+void main()
+{
+	print(4, 1,4,2,3); //打印1 4 2 3
+}
+
+
+
+// main函数参数解析 getopt
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+ 
+int main(int argc, char *argv[])
+{
+    int opt;
+    char *optstring = "a:b:c:d";//代表 -a 必须加参数 -b 必须加参数 -c 必须加参数 -d 必须加参数
+ 
+    while ((opt = getopt(argc, argv, optstring)) != -1)
+    {
+        printf("opt = %c\n", opt);
+        printf("optarg = %s\n", optarg);
+        printf("optind = %d\n", optind);
+        printf("argv[optind-1] = %s\n\n",  argv[optind-1]);
+    }
+ 
+    return 0;
+}
+
+/* 
+cashey@ubuntu:~/Desktop/getopt$ ./test_getopt -a 100 -b 200 -c admin -d
+opt = a
+optarg = 100
+optind = 3
+argv[optind - 1] = 100
+ 
+opt = b
+optarg = 200
+optind = 5
+argv[optind - 1] = 200
+ 
+opt = c
+optarg = admin
+optind = 7
+argv[optind - 1] = admin
+ 
+opt = d
+optarg = (null)
+optind = 8
+argv[optind - 1] = -d
+*/
+
+
+// main函数参数解析 getopt_long
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>

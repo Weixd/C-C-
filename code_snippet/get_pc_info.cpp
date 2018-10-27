@@ -1,3 +1,4 @@
+// 获取CPU的ID
 #ifndef STDIO_H
 #define STDIO_H
 #endif
