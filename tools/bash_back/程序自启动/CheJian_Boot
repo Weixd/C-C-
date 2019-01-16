@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd /opt/vehicle/program/chejian/bin
-sleep 120
-./CheJian
