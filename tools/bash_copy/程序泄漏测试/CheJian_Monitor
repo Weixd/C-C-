@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#version:2018-09-17
+
+procname="CheJian"
+fdpath="/media/public/973e2912-c898-4b6d-bc52-dad9f73e61fc/public/lvguanjiao/fd.txt"
+mempath="/media/public/973e2912-c898-4b6d-bc52-dad9f73e61fc/public/lvguanjiao/mem.txt"
+vmempath="/media/public/973e2912-c898-4b6d-bc52-dad9f73e61fc/public/lvguanjiao/graphic_mem.txt"
+
+rm -f $fdpath
+rm -f $mempath
+rm -f $vmempath
+
+while true
+do
+	pid=$(pidof $procname)
+	if [ "$pid" != "" ]	
+	then
+	    dateStr=`date +"%Y-%m-%d %H:%M:%S"`
+   		var1=$(lsof -c $procname | wc -l)
+		var2=$(echo 0 $(awk '/Private/ {print "+", $2}' /proc/$pid/smaps) | bc )
+		var3=$(nvidia-smi -q -d MEMORY | grep Used | head -1 | sed 's/.*: \([0-9]*\).*/\1/g')
+
+		echo "$dateStr""  ""$var2" >> $mempath
+		echo "$dateStr""  ""$var1" >> $fdpath
+		echo "$dateStr""  ""$var3" >> $vmempath
+		echo "fd-num:"$var1",mem-size:"$var2",v-memory:"$var3
+	fi
+	
+	sleep 15
+done
