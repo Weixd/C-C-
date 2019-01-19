@@ -7,9 +7,11 @@ USERNAME="root"
 PASSWORD="em-data-9527"
 DBNAME="car_schema"
 TABLENAME="check_infos"
+DATE1='2018-12-14'
+DATE2='2019-01-01'
 
 #获取数据库不同的车辆类型
-select_sql="SELECT zzcmc,clpp,clxh FROM car_schema.vehicle_checks WHERE created_at > '2019-01-01' GROUP BY zzcmc,clpp,clxh"
+select_sql="SELECT zzcmc,clpp,clxh FROM car_schema.vehicle_checks WHERE created_at > '${DATE1}' AND created_at < '${DATE2}' GROUP BY zzcmc,clpp,clxh"
 mysql -h${HOSTNAME}  -P${PORT}  -u${USERNAME} -p${PASSWORD} ${DBNAME} -e "${select_sql}" > ./file.txt;
 #创建不同车辆类型的目录
 dirnum=0
@@ -33,7 +35,7 @@ done < ./file.txt
 echo DIR_NUM:${dirnum}
 
 #获取id和path
-select_sql="SELECT vehicle_check_id,name FROM car_schema.check_infos WHERE created_at > '2019-01-01' AND category like \"0113\""
+select_sql="SELECT vehicle_check_id,name FROM car_schema.check_infos WHERE created_at > '${DATE1}' AND created_at < '${DATE2}' AND category like \"0113\""
 mysql -h${HOSTNAME}  -P${PORT}  -u${USERNAME} -p${PASSWORD} ${DBNAME} -e "${select_sql}" > ./id_path.txt;
 #获取不同id对应的图片信息
 imagenum=0
@@ -47,7 +49,7 @@ do
 	fi
 
 	#获取该id对应的制造厂名称，车辆品牌，车辆型号
-	select_sql="SELECT zzcmc,clpp,clxh,device_id FROM car_schema.vehicle_checks WHERE created_at > '2019-01-01' AND id like ${id}"
+	select_sql="SELECT zzcmc,clpp,clxh,device_id FROM car_schema.vehicle_checks WHERE created_at > '${DATE1}' AND created_at < '${DATE2}' AND id like ${id}"
 	mysql -h${HOSTNAME}  -P${PORT}  -u${USERNAME} -p${PASSWORD} ${DBNAME} -e "${select_sql}" > ./temp.txt;
 	#准备拷贝
 	while read line_
